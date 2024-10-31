@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import Calculator from './Calculator/Calculator'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  state = {
+    result: 0
+  }
+  showResult = (res) => {
+    this.setState({ result: res})
+  }
+  render () {
+    return (<div className="App">
+      <Calculator onResult={this.showResult}></Calculator>
+      <h1>{this.state.result}</h1>
     </div>
-  );
+    )
+  }
 }
 
 export default App;
